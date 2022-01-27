@@ -22,11 +22,11 @@ namespace Notes.Views
 
             // Create a Note object from each file.
             var files = Directory.EnumerateFiles(App.FolderPath, "*.notes.txt");
-            foreach (var filename in files)
+            foreach (var ID in files)
             {
                 notes.Add(new Note
                 {
-                    Filename = filename,
+                    ID = Id,
                     Text = File.ReadAllText(filename),
                     Date = File.GetCreationTime(filename)
                 });

@@ -28,13 +28,11 @@ namespace Notes.Views
         {
             try
             {
+                int id = Convert.ToInt32(filename);
+
                 // Retrieve the note and set it as the BindingContext of the page.
-                Note note = new Note
-                {
-                    Filename = filename,
-                    Text = File.ReadAllText(filename),
-                    Date = File.GetCreationTime(filename)
-                };
+                Note note = new Note();
+               
                 BindingContext = note;
             }
             catch (Exception)
@@ -46,12 +44,12 @@ namespace Notes.Views
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             var note = (Note)BindingContext;
-
-            if (string.IsNullOrWhiteSpace(note.Filename))
+            note.Date = DateTime.UtcNow;
+            if (string.IsNullOrWhiteSpace(note.SeviceName))
             {
                 // Save the file.
                 var filename = Path.Combine(App.FolderPath, $"{Path.GetRandomFileName()}.notes.txt");
-                File.WriteAllText(filename, note.Text);
+                File.WriteAllText(filename, note);
             }
             else
             {
@@ -68,9 +66,9 @@ namespace Notes.Views
             var note = (Note)BindingContext;
 
             // Delete the file.
-            if (File.Exists(note.Filename))
+            if (File.Exists(note))
             {
-                File.Delete(note.Filename);
+                File.Delete(note);
             }
 
             // Navigate backwards
