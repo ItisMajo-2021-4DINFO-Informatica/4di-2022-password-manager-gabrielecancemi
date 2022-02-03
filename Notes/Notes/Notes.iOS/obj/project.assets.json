@@ -997,11 +997,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Utente\\Desktop\\Notes\\Notes\\Notes.iOS\\Notes.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\Utente\\Desktop\\4di-2022-password-manager-gabrielecancemi\\Notes\\Notes\\Notes.iOS\\Notes.iOS.csproj",
       "projectName": "Notes.iOS",
-      "projectPath": "C:\\Users\\Utente\\Desktop\\Notes\\Notes\\Notes.iOS\\Notes.iOS.csproj",
+      "projectPath": "C:\\Users\\Utente\\Desktop\\4di-2022-password-manager-gabrielecancemi\\Notes\\Notes\\Notes.iOS\\Notes.iOS.csproj",
       "packagesPath": "C:\\Users\\Utente\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Utente\\Desktop\\Notes\\Notes\\Notes.iOS\\obj\\",
+      "outputPath": "C:\\Users\\Utente\\Desktop\\4di-2022-password-manager-gabrielecancemi\\Notes\\Notes\\Notes.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1022,8 +1022,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Utente\\Desktop\\Notes\\Notes\\Notes\\Notes.csproj": {
-              "projectPath": "C:\\Users\\Utente\\Desktop\\Notes\\Notes\\Notes\\Notes.csproj"
+            "C:\\Users\\Utente\\Desktop\\4di-2022-password-manager-gabrielecancemi\\Notes\\Notes\\Notes\\Notes.csproj": {
+              "projectPath": "C:\\Users\\Utente\\Desktop\\4di-2022-password-manager-gabrielecancemi\\Notes\\Notes\\Notes\\Notes.csproj"
             }
           }
         }

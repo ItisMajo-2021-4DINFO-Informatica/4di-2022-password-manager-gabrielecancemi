@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dtE8olZF7w2I9jYLpibMlU1jljjiKcOYRRMwYjTn/u2EfLQLpJurm2fZvVWHICouRSeCBs90jIxPRf0vmBuVDQ==",
+  "dgSpecHash": "h/RI1sKhTkpVBOTiUD+u3e3RAfVJTLgkijbmLC2uRld5SOK2B9EehgkqjLsW/j2jXnKogdsEBK72lcSba4reEA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Utente\\Desktop\\Notes\\Notes\\Notes.iOS\\Notes.iOS.csproj",
+  "projectFilePath": "C:\\Users\\Utente\\Desktop\\4di-2022-password-manager-gabrielecancemi\\Notes\\Notes\\Notes.iOS\\Notes.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Utente\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",

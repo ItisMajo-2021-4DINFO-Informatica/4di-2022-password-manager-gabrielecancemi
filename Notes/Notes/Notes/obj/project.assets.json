@@ -540,11 +540,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Utente\\Desktop\\Notes\\Notes\\Notes\\Notes.csproj",
+      "projectUniqueName": "C:\\Users\\Utente\\Desktop\\4di-2022-password-manager-gabrielecancemi\\Notes\\Notes\\Notes\\Notes.csproj",
       "projectName": "Notes",
-      "projectPath": "C:\\Users\\Utente\\Desktop\\Notes\\Notes\\Notes\\Notes.csproj",
+      "projectPath": "C:\\Users\\Utente\\Desktop\\4di-2022-password-manager-gabrielecancemi\\Notes\\Notes\\Notes\\Notes.csproj",
       "packagesPath": "C:\\Users\\Utente\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Utente\\Desktop\\Notes\\Notes\\Notes\\obj\\",
+      "outputPath": "C:\\Users\\Utente\\Desktop\\4di-2022-password-manager-gabrielecancemi\\Notes\\Notes\\Notes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
