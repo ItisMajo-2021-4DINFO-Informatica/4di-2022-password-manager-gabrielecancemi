@@ -5,7 +5,7 @@
              Title="Notes">
     <!-- Add an item to the toolbar -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add"
+        <ToolbarItem Text="Crea Password"
                      Clicked="OnAddClicked" />
     </ContentPage.ToolbarItems>
 

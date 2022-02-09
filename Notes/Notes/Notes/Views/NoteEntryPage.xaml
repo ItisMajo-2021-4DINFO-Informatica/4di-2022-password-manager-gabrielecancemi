@@ -12,6 +12,7 @@
                 Text="{Binding Username}"
                 HeightRequest="100" />
         <Editor Placeholder="Password"
+                x:Name="TxtPass"
                 Text="{Binding Password}"
                 HeightRequest="100" />
         <Editor Placeholder="URL"
@@ -19,11 +20,14 @@
                 HeightRequest="100" />
         <!-- Layout children in two columns -->
         <Grid ColumnDefinitions="*,*">
-            <Button Text="Save"
+            <Button Text="Genera Password" 
+                    Clicked="GeneraClick" />
+            <Button Text="Save" Grid.Column="2"
                     Clicked="OnSaveButtonClicked" />
             <Button Grid.Column="1"
                     Text="Delete"
                     Clicked="OnDeleteButtonClicked"/>
+            
         </Grid>
     </StackLayout>
 </ContentPage>

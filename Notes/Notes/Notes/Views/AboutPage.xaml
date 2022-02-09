@@ -17,7 +17,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
-                            <Span Text="Notes"
+                            <Span Text="Note"
                                   FontAttributes="Bold"
                                   FontSize="22" />
                             <Span Text=" v1.0" />
@@ -25,8 +25,8 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <Label Text="This app is written in XAML and C# with the Xamarin Platform." />
-            <Button Text="Learn more"
+            <Label Text="Questa applicazione è stata effettuata da Cancemi Gabriele. Tutti i diritti sono riservati." />
+            <Button Text="Più informazioni"
                     Clicked="OnButtonClicked" />
         </StackLayout>
     </Grid>

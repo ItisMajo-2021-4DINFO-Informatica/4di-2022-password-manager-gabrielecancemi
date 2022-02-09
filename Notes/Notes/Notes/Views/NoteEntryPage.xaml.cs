@@ -76,6 +76,38 @@ namespace Notes.Views
             await Shell.Current.GoToAsync("..");
         }
 
+
+        async void GeneraClick(object sender, EventArgs e)
+        {
+            const string LOWER_CASE = "abcdefghijklmnopqursuvwxyz";
+            const string UPPER_CAES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string NUMBERS = "123456789";
+            const string SPECIALS = @"!@£$%^&*()#€";
+
+            char[] _password = new char[10];
+            string charSet = ""; // Initialise to blank
+            System.Random _random = new Random();
+            int counter;
+
+            // Build up the character set to choose from
+            charSet += LOWER_CASE;
+
+            charSet += UPPER_CAES;
+
+            charSet += NUMBERS;
+
+            charSet += SPECIALS;
+
+            for (counter = 0; counter < 10; counter++)
+            {
+                _password[counter] = charSet[_random.Next(charSet.Length - 1)];
+            }
+
+            TxtPass.Text = String.Join(null, _password);
+        }
+
+
+
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
             var note = (Note)BindingContext;
@@ -88,6 +120,11 @@ namespace Notes.Views
 
             // Navigate backwards
             await Shell.Current.GoToAsync("..");
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
