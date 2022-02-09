@@ -2,6 +2,10 @@
 using System.IO;
 using Notes.Models;
 using Xamarin.Forms;
+using System.Security.Cryptography;
+using System.Text;
+
+
 
 namespace Notes.Views
 {
@@ -60,6 +64,17 @@ namespace Notes.Views
                     note.Username + "§" +
                     note.Password + "§" +
                     note.URL;
+
+                Aes myAes = Aes.Create();
+                myAes.Key = Encoding.ASCII.GetBytes("5415D8C5 AB58F7BB C39E84B7 BD2E9CC6 D45FE538 1A9A2091 735582E1 A90EA0B7");
+                myAes.IV = Encoding.ASCII.GetBytes("0AC732E1 BEA37032 7A444755 0B26C55F");
+
+
+                byte[] encrypted = EncryptStringToBytes_Aes(allText, myAes.Key, myAes.IV);
+
+
+
+
                 File.WriteAllText(filename, allText);
             }
             else
@@ -75,6 +90,53 @@ namespace Notes.Views
             // Navigate backwards
             await Shell.Current.GoToAsync("..");
         }
+
+
+
+        static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
+        {
+            // Check arguments.
+            if (plainText == null || plainText.Length <= 0)
+                throw new ArgumentNullException("plainText");
+            if (Key == null || Key.Length <= 0)
+                throw new ArgumentNullException("Key");
+            if (IV == null || IV.Length <= 0)
+                throw new ArgumentNullException("IV");
+            byte[] encrypted;
+
+            // Create an Aes object
+            // with the specified key and IV.
+            using (Aes aesAlg = Aes.Create())
+            {
+                aesAlg.Key = Key;
+                aesAlg.IV = IV;
+
+                // Create an encryptor to perform the stream transform.
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+                // Create the streams used for encryption.
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            //Write all data to the stream.
+                            swEncrypt.Write(plainText);
+                        }
+                        encrypted = msEncrypt.ToArray();
+                    }
+                }
+            }
+
+            // Return the encrypted bytes from the memory stream.
+            return encrypted;
+        }
+
+
+
+
+
 
 
         async void GeneraClick(object sender, EventArgs e)
