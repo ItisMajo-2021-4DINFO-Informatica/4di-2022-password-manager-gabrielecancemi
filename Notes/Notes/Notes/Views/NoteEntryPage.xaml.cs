@@ -12,6 +12,8 @@ namespace Notes.Views
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public partial class NoteEntryPage : ContentPage
     {
+        string chiave = "p9e6s6wn2,a4z8d4f3w8d4f3w87wqèas";
+        string vettore = "p9u6r3e2wavzm<.-";
         public string ItemId
         {
             set
@@ -33,7 +35,8 @@ namespace Notes.Views
             try
             {
                 string allText = File.ReadAllText(filename);
-                string[] campi = allText.Split('§');
+                string testoDecriptato = Decrittografia(allText);
+                string[] campi = testoDecriptato.Split('+');
                 // Retrieve the note and set it as the BindingContext of the page.
                 Note note = new Note
                 {
@@ -60,31 +63,22 @@ namespace Notes.Views
             {
                 // Save the file.
                 var filename = Path.Combine(App.FolderPath, $"{Path.GetRandomFileName()}.notes.txt");
-                string allText = note.ServiceName + "§" +
-                    note.Username + "§" +
-                    note.Password + "§" +
+                string allText = note.ServiceName + "+" +
+                    note.Username + "+" +
+                    note.Password + "+" +
                     note.URL;
 
-                Aes myAes = Aes.Create();
-                myAes.Key = Encoding.ASCII.GetBytes("5415D8C5 AB58F7BB C39E84B7 BD2E9CC6 D45FE538 1A9A2091 735582E1 A90EA0B7");
-                myAes.IV = Encoding.ASCII.GetBytes("0AC732E1 BEA37032 7A444755 0B26C55F");
 
-
-                byte[] encrypted = EncryptStringToBytes_Aes(allText, myAes.Key, myAes.IV);
-
-
-
-
-                File.WriteAllText(filename, allText);
+                File.WriteAllText(filename, Crittografia(allText));
             }
             else
             {
                 // Update the file.
-                string allText = note.ServiceName + "§" +
-                                note.Username + "§" +
-                                note.Password + "§" +
+                string allText = note.ServiceName + "+" +
+                                note.Username + "+" +
+                                note.Password + "+" +
                                 note.URL;
-                File.WriteAllText(note.Filename, allText);
+                File.WriteAllText(note.Filename, Crittografia(allText));
             }
 
             // Navigate backwards
@@ -93,53 +87,66 @@ namespace Notes.Views
 
 
 
-        static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
+
+
+        async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
-            // Check arguments.
-            if (plainText == null || plainText.Length <= 0)
-                throw new ArgumentNullException("plainText");
-            if (Key == null || Key.Length <= 0)
-                throw new ArgumentNullException("Key");
-            if (IV == null || IV.Length <= 0)
-                throw new ArgumentNullException("IV");
-            byte[] encrypted;
+            var note = (Note)BindingContext;
 
-            // Create an Aes object
-            // with the specified key and IV.
-            using (Aes aesAlg = Aes.Create())
+            // Delete the file.
+            if (File.Exists(note.Filename))
             {
-                aesAlg.Key = Key;
-                aesAlg.IV = IV;
-
-                // Create an encryptor to perform the stream transform.
-                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
-
-                // Create the streams used for encryption.
-                using (MemoryStream msEncrypt = new MemoryStream())
-                {
-                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                        {
-                            //Write all data to the stream.
-                            swEncrypt.Write(plainText);
-                        }
-                        encrypted = msEncrypt.ToArray();
-                    }
-                }
+                File.Delete(note.Filename);
             }
 
-            // Return the encrypted bytes from the memory stream.
-            return encrypted;
+            // Navigate backwards
+            await Shell.Current.GoToAsync("..");
+        }
+
+       
+
+
+        public string Crittografia( string allText)
+        {
+            byte[] testoDacriptare = ASCIIEncoding.ASCII.GetBytes(allText);
+
+            AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
+            aes.BlockSize = 128;
+            aes.KeySize = 256;
+            aes.Key = ASCIIEncoding.ASCII.GetBytes(chiave);
+            aes.IV = ASCIIEncoding.ASCII.GetBytes(vettore);
+            aes.Mode = CipherMode.CBC;
+            aes.Padding = PaddingMode.PKCS7;
+            ICryptoTransform ict = aes.CreateEncryptor(aes.Key, aes.IV);
+            byte[] testoCriptato = ict.TransformFinalBlock(testoDacriptare, 0, testoDacriptare.Length);
+            ict.Dispose();
+
+            string critto = Convert.ToBase64String(testoCriptato);
+            return critto;
         }
 
 
+        public string Decrittografia(string allText)
+        {
+            byte[] testoCriptato = Convert.FromBase64String(allText);
+            AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
+            aes.BlockSize = 128;
+            aes.KeySize = 256;
+            aes.Key = ASCIIEncoding.ASCII.GetBytes(chiave);
+            aes.IV = ASCIIEncoding.ASCII.GetBytes(vettore);
+            aes.Mode = CipherMode.CBC;
+            aes.Padding = PaddingMode.PKCS7;
 
 
+            ICryptoTransform tdc = aes.CreateDecryptor(aes.Key, aes.IV);
+            byte[] testoDecriptato = tdc.TransformFinalBlock(testoCriptato, 0, testoCriptato.Length);
+            tdc.Dispose();
+            string decritto = ASCIIEncoding.ASCII.GetString(testoDecriptato);
 
+            return (decritto);
+        }
 
-
-        async void GeneraClick(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
             const string LOWER_CASE = "abcdefghijklmnopqursuvwxyz";
             const string UPPER_CAES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -166,27 +173,6 @@ namespace Notes.Views
             }
 
             TxtPass.Text = String.Join(null, _password);
-        }
-
-
-
-        async void OnDeleteButtonClicked(object sender, EventArgs e)
-        {
-            var note = (Note)BindingContext;
-
-            // Delete the file.
-            if (File.Exists(note.Filename))
-            {
-                File.Delete(note.Filename);
-            }
-
-            // Navigate backwards
-            await Shell.Current.GoToAsync("..");
-        }
-
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

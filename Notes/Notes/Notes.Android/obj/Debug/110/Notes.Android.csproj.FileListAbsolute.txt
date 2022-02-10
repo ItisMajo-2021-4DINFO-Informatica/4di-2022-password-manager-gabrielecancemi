@@ -1118,7 +1118,6 @@ C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\No
 C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\src\mono\MonoPackageManager_Resources.java
 C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\src\xamarin\essentials\fileProvider.java
 C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\bin\packaged_resources
-C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\src\com\companyname\notes\R.java
 C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\compressed_assemblies.arm64-v8a.s
 C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\compressed_assemblies.armeabi-v7a.s
 C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\compressed_assemblies.x86.s

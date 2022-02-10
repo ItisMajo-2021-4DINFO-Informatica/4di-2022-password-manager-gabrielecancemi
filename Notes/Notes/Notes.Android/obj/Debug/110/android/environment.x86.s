@@ -2,8 +2,8 @@
 	.section	.rodata.env.str.1,"aMS",@progbits,1
 	.type	.L.env.str.1, @object
 .L.env.str.1:
-	.asciz	"com.companyname.notes"
-	.size	.L.env.str.1, 22
+	.asciz	"com.cancemi.notesPasswordManager"
+	.size	.L.env.str.1, 33
 	.section	.data.application_config,"aw",@progbits
 	.type	application_config, @object
 	.p2align	2
@@ -71,7 +71,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-	.asciz	"7c2e3df2-533d-4e63-b569-2a72b3fdd0e9"
+	.asciz	"b1ecedd5-6e8d-432a-a53a-e716ef9d58c1"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object

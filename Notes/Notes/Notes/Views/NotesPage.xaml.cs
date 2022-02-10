@@ -4,11 +4,16 @@ using System.IO;
 using System.Linq;
 using Notes.Models;
 using Xamarin.Forms;
+using System.Security.Cryptography;
+using System.Text;
+
 
 namespace Notes.Views
 {
     public partial class NotesPage : ContentPage
     {
+        string chiave = "p9e6s6wn2,a4z8d4f3w8d4f3w87wqèas";
+        string vettore = "p9u6r3e2wavzm<.-";
         public NotesPage()
         {
             InitializeComponent();
@@ -25,7 +30,13 @@ namespace Notes.Views
             foreach (var filename in files)
             {
                 string allText = File.ReadAllText(filename);
-                string[] campi = allText.Split('§');
+
+
+                string testoDecriptato = Decrittografia(allText);
+
+
+
+                string[] campi = testoDecriptato.Split('+');
                 notes.Add(new Note
                 {
                     Filename = filename,
@@ -59,6 +70,26 @@ namespace Notes.Views
                 Note note = (Note)e.CurrentSelection.FirstOrDefault();
                 await Shell.Current.GoToAsync($"{nameof(NoteEntryPage)}?{nameof(NoteEntryPage.ItemId)}={note.Filename}");
             }
+        }
+
+        public string Decrittografia( string allText)
+        {
+            byte[] testoCriptato = Convert.FromBase64String(allText);
+            AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
+            aes.BlockSize = 128;
+            aes.KeySize = 256;
+            aes.Key = ASCIIEncoding.ASCII.GetBytes(chiave);
+            aes.IV = ASCIIEncoding.ASCII.GetBytes(vettore);
+            aes.Mode = CipherMode.CBC;
+            aes.Padding = PaddingMode.PKCS7;
+            
+
+            ICryptoTransform tdc = aes.CreateDecryptor(aes.Key, aes.IV);
+            byte[] testoDecriptato = tdc.TransformFinalBlock(testoCriptato, 0, testoCriptato.Length);
+            tdc.Dispose();
+            string decritto = ASCIIEncoding.ASCII.GetString(testoDecriptato);
+
+            return(decritto);
         }
     }
 }
