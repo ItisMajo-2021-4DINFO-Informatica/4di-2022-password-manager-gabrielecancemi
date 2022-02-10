@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notes.Views.NotesPage"
-             Title="Note">
+             Title="Password Manager">
     <!-- Add an item to the toolbar -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Crea Nota"
+        <ToolbarItem Text="Aggiungi Password"
                      Clicked="OnAddClicked" />
     </ContentPage.ToolbarItems>
 
@@ -21,13 +21,16 @@
         <!-- Define the appearance of each item in the list -->
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <StackLayout>
+                <StackLayout BackgroundColor="blue"
+                             Padding="10"
+                             >
                     <Label Text="{Binding ServiceName}"
                            FontSize="Medium"
-                           TextColor="black"/>
+                           TextColor="white"/>
                     <Label Text="{Binding Date}"
-                           TextColor="red"
-                           FontSize="Small" />
+                           TextColor="white"
+                           FontSize="Small"
+                           FontAttributes="Italic"/>
                 </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>

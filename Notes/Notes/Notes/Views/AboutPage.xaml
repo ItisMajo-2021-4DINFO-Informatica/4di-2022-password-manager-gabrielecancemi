@@ -6,9 +6,10 @@
     <!-- Layout children in two rows -->
     <Grid RowDefinitions="Auto,*">
         <Image Source="xamarin_logo.png"
-               BackgroundColor="darkred"
+               BackgroundColor="blue"
                VerticalOptions="Center"
-               HeightRequest="64" />
+               HeightRequest="64"
+               />
         <!-- Layout children vertically -->
         <StackLayout Grid.Row="1"
                      Margin="20"
@@ -27,7 +28,7 @@
             </Label>
             <Label Text="Questa applicazione è stata effettuata da Cancemi Gabriele. Tutti i diritti sono riservati." />
             <Button Text="Più informazioni"
-                    BackgroundColor="red"
+                    BackgroundColor="blue"
                     TextColor="White"
                     Clicked="OnButtonClicked" />
         </StackLayout>

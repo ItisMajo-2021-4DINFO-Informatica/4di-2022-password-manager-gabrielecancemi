@@ -8,7 +8,7 @@
        UnselectedColor="WhiteSmoke">
     <!-- Display a bottom tab bar containing two tabs -->
     <TabBar>
-        <ShellContent Title="Note"       
+        <ShellContent Title="Password"       
                       Icon="icon_feed.png"
                       ContentTemplate="{DataTemplate views:NotesPage}" />
         <ShellContent Title="Info"

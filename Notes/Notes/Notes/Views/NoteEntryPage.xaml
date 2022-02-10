@@ -2,22 +2,35 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notes.Views.NoteEntryPage"
-             Title="Nota">
+             Title="Password">
     <!-- Layout children vertically -->
     <StackLayout Margin="20">
         <Editor Placeholder="Servizio"
                 Text="{Binding ServiceName}"
-                HeightRequest="50" />
+                HeightRequest="50" 
+                BackgroundColor="blue"
+                TextColor="white"
+                PlaceholderColor="white"
+                />
         <Editor Placeholder="Username"
                 Text="{Binding Username}"
-                HeightRequest="50" />
+                HeightRequest="50" 
+                BackgroundColor="blue"
+                TextColor="white"
+                PlaceholderColor="white"/>
         <Editor Placeholder="Password"
                 x:Name="TxtPass"
                 Text="{Binding Password}"
-                HeightRequest="50" />
+                HeightRequest="50"
+                BackgroundColor="blue"
+                TextColor="white"
+                PlaceholderColor="white"/>
         <Editor Placeholder="URL"
                 Text="{Binding URL}"
-                HeightRequest="50" />
+                HeightRequest="50" 
+                BackgroundColor="blue"
+                TextColor="white"
+                PlaceholderColor="white"/>
         <!-- Layout children in two columns -->
         <Grid ColumnDefinitions="*,*">
             <Button FontSize="Small"
