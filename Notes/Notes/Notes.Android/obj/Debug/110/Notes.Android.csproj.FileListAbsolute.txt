@@ -1155,3 +1155,4 @@ C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\No
 C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\bin\com.cancemi.notesPasswordManager.aab
 C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\bin\com.cancemi.notesPasswordManager.apks
 C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\android\src\com\cancemi\notespasswordmanager\R.java
+C:\Users\Utente\Desktop\4di-2022-password-manager-gabrielecancemi\Notes\Notes\Notes.Android\obj\Debug\110\Notes.Android.csproj.CopyComplete
